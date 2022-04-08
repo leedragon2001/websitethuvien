@@ -133,13 +133,17 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
                                         </div>
                                         <div class="col-6 mt-3 ">
                                             <label for="exampleFormControlFile1">Password:</label>
-                                            <input type="text" class="form-control" id="daodien" name="password"
+                                            <input type="password" class="form-control" id="daodien1" name="password"
                                                 value="<?php echo $arUser['password'] ?>" tabindex="3">
+                                            <span class="eye" onclick="myEye()">
+                                                <i id="hidden1" class="fa fa-eye"></i>
+                                            </span>
                                         </div>
                                     </div>
-                                    <div class="row">
+                                    <div class=" row">
                                         <div class="col-6">
-                                            <label for="category-film" class="col-form-label">Email: </label>
+                                            <label for="category-film" class="col-form-label">Email:
+                                            </label>
                                             <input type="text" class="form-control" id="daodien" name="email"
                                                 value="<?php echo $arUser['email'] ?>" tabindex="1">
                                         </div>
@@ -155,6 +159,20 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
 
         </div>
     </div>
+    <script>
+    function myEye() {
+        var x = document.getElementById("daodien1");
+        var y = document.getElementById("hidden1");
+
+        if (x.type === 'password') {
+            x.type = "text";
+            y.stye.display = "block";
+        } else {
+            x.type = "password";
+            y.stye.display = "none";
+        }
+    }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="js/scripts.js"></script>

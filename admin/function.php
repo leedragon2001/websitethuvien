@@ -39,22 +39,54 @@ if(isset($_POST['deletenguoidung'])){
         header("Location: nguoidung.php?msg=2");
     }
 }
-if(isset($_POST['addsach'])){
+// if(isset($_POST['addsach'])){
+//     $tensach = $_POST['tensach'];
+//     $masach = $_POST['masach'];
+//     $nganh  = $_POST['nganh'];
+//     $tacgia  = $_POST['tacgia'];
+//     $nhaxb = $_POST['nhaxb'];
+//     $soluong  = $_POST['soluong'];
+//     $query = "INSERT INTO book ( masach, ten, nganh, nhaxb, soluong, tacgia, status ) VALUES ( '{$masach}', '{$tensach}', '{$nganh}', '{$nhaxb}', '{$soluong}', '{$tacgia}', 1 ) ";
+//     $result = mysqli_query($connect, $query);
+//     if ($result) {
+//       header("Location: sach.php?msg=1");
+//     } 
+//     else {
+//         header("Location: sach.php?msg=2");
+//     }
+// }
+
+if (isset($_POST['addsach'])) {
     $tensach = $_POST['tensach'];
     $masach = $_POST['masach'];
     $nganh  = $_POST['nganh'];
     $tacgia  = $_POST['tacgia'];
     $nhaxb = $_POST['nhaxb'];
     $soluong  = $_POST['soluong'];
+    $querycheck = "SELECT * FROM book WHERE masach='$masach' ";
+    $resultcheck = mysqli_query($connect, $querycheck);
+    $check = mysqli_num_rows($resultcheck);
+    if ($check == 0) {
     $query = "INSERT INTO book ( masach, ten, nganh, nhaxb, soluong, tacgia, status ) VALUES ( '{$masach}', '{$tensach}', '{$nganh}', '{$nhaxb}', '{$soluong}', '{$tacgia}', 1 ) ";
     $result = mysqli_query($connect, $query);
     if ($result) {
-      header("Location: sach.php?msg=1");
-    } 
-    else {
+        header("Location: sach.php?msg=1");
+    } else {
         header("Location: sach.php?msg=2");
     }
+}else {
+header("Location: sach.php?fail");
 }
+
+}
+
+
+
+
+
+
+
+
 if(isset($_POST['editsach'])){
     $tensach = $_POST['tensach'];
     $masach = $_POST['masach'];
@@ -126,4 +158,3 @@ if(isset($_POST['trasach'])){
         header("Location: phieumuon.php?msg=2");
     }
 }
-?>

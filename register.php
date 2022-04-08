@@ -40,7 +40,7 @@ Redirect()
                                 <div class="card-body">
                                     <?php if (isset($_GET['fail'])) { ?>
                                     <div class="alert alert-danger">
-                                        <strong>Username already exists in the system!</strong>
+                                        <strong>Username or ID already exists in the system!</strong>
                                     </div>
                                     <?php }  ?>
                                     <form action="checklogin.php" method="POST">

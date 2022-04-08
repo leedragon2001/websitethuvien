@@ -133,7 +133,7 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
                                         </div>
                                         <div class="col-6 mt-3 ">
                                             <label for="exampleFormControlFile1">Password:</label>
-                                            <input type="text" class="form-control" id="daodien" name="matkhau"
+                                            <input type="password" class="form-control" id="daodien1" name="matkhau"
                                                 value="<?php echo $arUser['password'] ?>" tabindex="3" disabled>
                                         </div>
                                     </div>

@@ -128,49 +128,29 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
 
                     <div class="card mb-4">
                         <div class="card-header">
-
-                            <div class="row" style="justify-content:space-around !important">
-                                <div class="col-3">
-                                    <form method="GET" action="" class="register-form" id="register-form">
-                                        <label for="category-film" class="col-form-label">Book Name:</label>
-                                        <input type="text" class="form-control" id="bn" name="bookname">
-                                        <button type="submit" class="btn btn-success"
-                                            style="margin-top:10px !important">
-                                            Search
-                                        </button>
-                                    </form>
+                            <form method="GET" action="" id="register-form" class="row"
+                                style="justify-content:space-around !important">
+                                <div class="register-form col-3">
+                                    <label for="category-film" class="col-form-label">Book Name:</label>
+                                    <input type="text" class="form-control" id="bn" name="bookname">
                                 </div>
-                                <div class="col-3">
-                                    <form method="GET" action="" class="register-form" id="register-form">
-                                        <label for="category-film" class="col-form-label">Branch:</label>
-                                        <input type="text" class="form-control" id="bn" name="branch">
-                                        <button type="submit" class="btn btn-success"
-                                            style="margin-top:10px !important">
-                                            Search
-                                        </button>
-                                    </form>
+                                <div class="register-form col-3">
+                                    <label for="category-film" class="col-form-label">Branch:</label>
+                                    <input type="text" class="form-control" id="bn" name="branch">
                                 </div>
-                                <div class="col-3">
-                                    <form method="GET" action="" class="register-form" id="register-form">
-                                        <label for="category-film" class="col-form-label">Author:</label>
-                                        <input type="text" class="form-control" id="bn" name="author">
-                                        <button type="submit" class="btn btn-success"
-                                            style="margin-top:10px !important">
-                                            Search
-                                        </button>
-                                    </form>
+                                <div class="register-form col-3">
+                                    <label for="category-film" class="col-form-label">Author:</label>
+                                    <input type="text" class="form-control" id="bn" name="author">
                                 </div>
-                                <div class="col-3">
-                                    <form method="GET" action="" class="register-form" id="register-form">
-                                        <label for="category-film" class="col-form-label">Publishing Company:</label>
-                                        <input type="text" class="form-control" id="bn" name="pc">
-                                        <button type="submit" class="btn btn-success"
-                                            style="margin-top:10px !important">
-                                            Search
-                                        </button>
-                                    </form>
+                                <div class="register-form col-3">
+                                    <label for="category-film" class="col-form-label">Publishing Company:</label>
+                                    <input type="text" class="form-control" id="bn" name="pc">
+                                    <button type="submit" class="btn btn-success"
+                                        style="margin-top:10px; float:right !important">
+                                        Search
+                                    </button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <div class="card-body">
                             <table id="datatablesSimple">
@@ -187,7 +167,7 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
                                         <?php } ?>
                                     </tr>
                                 </thead>
-                                <tfoot>
+                                <!-- <tfoot>
                                     <tr>
                                         <th>No.</th>
                                         <th>Book Name</th>
@@ -196,25 +176,28 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
                                         <th>Publishing Company</th>
                                         <th>Quantity</th>
                                     </tr>
-                                </tfoot>
+                                </tfoot> -->
                                 <tbody>
                                     <!-- Hiển thị dữ liệu sách ra ngoài giao diện-->
                                     <?php
+                                    $query = "SELECT * FROM `book` WHERE `book`.`soluong` > 0 AND `book`.`status` = 1 ";
                                     if (isset($_GET['bookname'])) {
                                         $bn = $_GET['bookname'];
-                                        $query = "SELECT * FROM `book` WHERE `book`.`soluong` > 0 AND `book`.`status` = 1 AND `book`.`ten` LIKE '%$bn%'  ORDER BY `book`.`id` ASC";
-                                    } else if (isset($_GET['branch'])) {
-                                        $br = $_GET['branch'];
-                                        $query = "SELECT * FROM `book` WHERE `book`.`soluong` > 0 AND `book`.`status` = 1 AND `book`.`nganh` LIKE '%$br%'  ORDER BY `book`.`id` ASC";
-                                    } else if (isset($_GET['author'])) {
-                                        $au = $_GET['author'];
-                                        $query = "SELECT * FROM `book` WHERE `book`.`soluong` > 0 AND `book`.`status` = 1 AND `book`.`tacgia` LIKE '%$au%'  ORDER BY `book`.`id` ASC";
-                                    } else if (isset($_GET['pc'])) {
-                                        $pc = $_GET['pc'];
-                                        $query = "SELECT * FROM `book` WHERE `book`.`soluong` > 0 AND `book`.`status` = 1 AND `book`.`nhaxb` LIKE '%$pc%'  ORDER BY `book`.`id` ASC";
-                                    } else {
-                                        $query = "SELECT * FROM `book` WHERE `book`.`soluong` > 0 AND `book`.`status` = 1  ORDER BY `book`.`id` ASC";
+                                        $query = $query . " AND `book`.`ten` LIKE '%$bn%' ";
                                     }
+                                    if (isset($_GET['branch'])) {
+                                        $br = $_GET['branch'];
+                                        $query = $query . " AND `book`.`nganh` LIKE '%$br%' ";
+                                    }
+                                    if (isset($_GET['author'])) {
+                                        $au = $_GET['author'];
+                                        $query = $query . " AND `book`.`tacgia` LIKE '%$au%' ";
+                                    }
+                                    if (isset($_GET['pc'])) {
+                                        $pc = $_GET['pc'];
+                                        $query = $query . " AND `book`.`nhaxb` LIKE '%$pc%' ";
+                                    }
+                                    $query = $query . " ORDER BY `book`.`id` ASC";
                                     $result = mysqli_query($connect, $query);
                                     $stt = 1;
                                     while ($arUser = mysqli_fetch_array($result, MYSQLI_ASSOC)) {

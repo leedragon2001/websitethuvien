@@ -31,6 +31,11 @@
                             </div>
                             <?php }  ?>
                             <?php }  ?>
+                            <?php if (isset($_GET['fail'])) { ?>
+                            <div class="alert alert-danger">
+                                <strong>ID Book already exists in the system!</strong>
+                            </div>
+                            <?php }  ?>
                             <button type="button" class="btn btn-success" data-bs-toggle="modal"
                                 data-bs-target="#exampleModalAdd">
                                 Add New Book
@@ -43,7 +48,7 @@
                                         <th>No.</th>
                                         <th>ID Book</th>
                                         <th>Book Name</th>
-                                        <th>Branch</th>
+                                        <th>Category</th>
                                         <th>Author</th>
                                         <th>Publishing Company</th>
                                         <th>Quantity</th>
@@ -145,7 +150,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="category-film"
-                                                                class="col-form-label">Branch:</label>
+                                                                class="col-form-label">Category:</label>
                                                             <input type="text" class="form-control" id="category-film"
                                                                 name="nganh" value="<?php echo $arUser["nganh"] ?>"
                                                                 required>
@@ -191,6 +196,7 @@
                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
+
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Add New Book</h5>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
@@ -212,7 +218,7 @@
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="category-film"
-                                                                class="col-form-label">Branch:</label>
+                                                                class="col-form-label">Category:</label>
                                                             <input type="text" class="form-control" id="category-film"
                                                                 name="nganh" required>
                                                         </div>
