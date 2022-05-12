@@ -16,7 +16,7 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">UPDATE INFORMATION</h1>
+                    <h1 class="mt-4">PROFILE</h1>
                     <div class="card mb-4">
                         <div class="card-header">
                             <?php if (isset($_GET['msg']) && ($_GET['msg'] = 1)) { ?>
@@ -57,10 +57,13 @@
                                         <input type="text" class="form-control" value="Change Password" disabled />
                                     </div>
                                     <div class="col-4">
-                                        <input type="text" class="form-control" name="matkhau"
+                                        <input type="password" class="form-control" id="password" name="matkhau"
                                             value="<?php echo $arUser['password'] ?>" required>
                                         <input type="hidden" class="form-control" name="id"
                                             value="<?php echo $arUser['id'] ?>" required>
+                                        <span class="eye" onclick="myEye()">
+                                            <i id="hidden2" class="fa fa-eye"></i>
+                                        </span>
                                     </div>
                                     <div class="col-2">
                                         <button type="submit" class="btn btn-success" name="editmk">
@@ -76,6 +79,20 @@
 
         </div>
     </div>
+    <script>
+    function myEye() {
+        var x = document.getElementById("password");
+        var y = document.getElementById("hidden2");
+
+        if (x.type === 'password') {
+            x.type = "text";
+            y.stye.display = "block";
+        } else {
+            x.type = "password";
+            y.stye.display = "none";
+        }
+    }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="js/scripts.js"></script>

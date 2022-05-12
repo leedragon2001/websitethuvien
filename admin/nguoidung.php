@@ -46,7 +46,7 @@
                                 <tbody>
                                     <?php
 
-                                    $query = "SELECT * FROM user WHERE role = 2 ORDER BY id DESC";
+                                    $query = "SELECT * FROM user WHERE role = 2 ORDER BY id ASC";
                                     $result = mysqli_query($connect, $query);
                                     $stt = 1;
                                     while ($arUser = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
@@ -139,9 +139,10 @@
                                                         <div class="mb-3">
                                                             <label for="category-film" class="col-form-label">
                                                                 Password:</label>
-                                                            <input type="text" class="form-control" id="category-film"
-                                                                name="matkhau" value="<?php echo $arUser["password"] ?>"
-                                                                required>
+                                                            <input type="password" class="form-control"
+                                                                id="category-film" name="matkhau"
+                                                                value="<?php echo $arUser["password"] ?>" required
+                                                                minlength="8" maxlength="15">
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
@@ -170,6 +171,11 @@
                                                         aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
+                                                    <?php if (isset($_GET['fail'])) { ?>
+                                                    <div class="alert alert-danger">
+                                                        <strong>Username already exists in the system!</strong>
+                                                    </div>
+                                                    <?php }  ?>
                                                     <form action="function.php" method="POST">
                                                         <div class="mb-3">
                                                             <label for="category-film" class="col-form-label"> Full
@@ -186,8 +192,9 @@
                                                         <div class="mb-3">
                                                             <label for="category-film" class="col-form-label"> Password:
                                                             </label>
-                                                            <input type="text" class="form-control" id="category-film"
-                                                                name="matkhau" required>
+                                                            <input type="password" class="form-control"
+                                                                id="category-film" name="matkhau" required minlength="8"
+                                                                maxlength="15">
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"

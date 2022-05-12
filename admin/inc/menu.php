@@ -20,7 +20,7 @@
                 <?php if ($_SESSION['role'] == 1) { ?>
                 <a class="nav-link text-light" href="infor.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    UPDATE INFORMATION
+                    PROFILE
                 </a>
                 <a class="nav-link text-light" href="nguoidung.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
@@ -42,7 +42,7 @@
                 <?php } else { ?>
                 <a class="nav-link text-light" href="infor.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                    UPDATE INFORMATION
+                    PROFILE
                 </a>
                 <a class="nav-link text-light" href="sach.php">
                     <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>

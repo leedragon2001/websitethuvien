@@ -46,6 +46,8 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
                             <?php echo $_SESSION['hoten'] ?></a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="infor.php">Profile</a></li>
+                            <li><a class="dropdown-item" href="history.php">History</a></li>
+                            <li><a class="dropdown-item" href="overdue.php">Overdue</a></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             <?php } else { ?>
                             <a style="color:white;margin-top:15px;text-decoration:none" href="login.php">Sign In</a> ||
@@ -64,6 +66,10 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
                                 </div>
                             </li>
                             <li class="nav-item"><a class="nav-link active text-light" href="infor.php">PROFILE</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link active text-light" href="history.php">HISTORY</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link active text-light" href="overdue.php">OVERDUE</a>
                             </li>
                             <li class="nav-item"><a class="nav-link active text-light" href="logout.php">LOGOUT</a>
                             </li>

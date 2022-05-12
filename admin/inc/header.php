@@ -28,14 +28,14 @@ if (empty($_SESSION['taikhoan'])) {
                 </li>
                 <li class="nav-item"> <a class="nav-link active text-light" href="index.php">Home</a></li>
                 <?php if ($_SESSION['role'] == 1) { ?>
-                <li class="nav-item "><a class="nav-link active text-light" href="infor.php">Update Information</a></li>
+                <li class="nav-item "><a class="nav-link active text-light" href="infor.php">Profile</a></li>
                 <li class="nav-item "><a class="nav-link active text-light" href="nguoidung.php">Manage Librarian</a>
                 </li>
                 <li class="nav-item "><a class="nav-link active text-light" href="sach.php">Manage Book</a></li>
                 <li class="nav-item "><a class="nav-link active text-light" href="phieumuon.php">Manage History</a></li>
                 <li class="nav-item "><a class="nav-link active text-light" href="phieumuon.php">Manage Reader</a></li>
                 <?php } else { ?>
-                <li class="nav-item "><a class="nav-link active text-light" href="infor.php">Update Information</a></li>
+                <li class="nav-item "><a class="nav-link active text-light" href="infor.php">Profile</a></li>
                 <li class="nav-item "><a class="nav-link active text-light" href="sach.php">Manage Book</a></li>
                 <li class="nav-item "><a class="nav-link active text-light" href="phieumuon.php">Manage History</a></li>
                 <li class="nav-item"> <a class="nav-link active text-light" href="reader.php">Manage Reader</a></li>

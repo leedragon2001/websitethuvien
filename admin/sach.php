@@ -59,7 +59,7 @@
                                 <tbody>
                                     <?php
 
-                                    $query = "SELECT * FROM book WHERE status = 1 ORDER BY id DESC";
+                                    $query = "SELECT * FROM book WHERE status = 1 ORDER BY id ASC";
                                     $result = mysqli_query($connect, $query);
                                     $stt = 1;
                                     while ($arUser = mysqli_fetch_array($result, MYSQLI_ASSOC)) {

@@ -67,6 +67,10 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
                             </li>
                             <li class="nav-item"><a class="nav-link active text-light" href="infor.php">PROFILE</a>
                             </li>
+                            <li class="nav-item"><a class="nav-link active text-light" href="history.php">HISTORY</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link active text-light" href="overdue.php">OVERDUE</a>
+                            </li>
                             <li class="nav-item"><a class="nav-link active text-light" href="logout.php">LOGOUT</a>
                             </li>
                         </ul>

@@ -66,6 +66,10 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
                             </li>
                             <li class="nav-item"><a class="nav-link active text-light" href="infor.php">PROFILE</a>
                             </li>
+                            <li class="nav-item"><a class="nav-link active text-light" href="history.php">HISTORY</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link active text-light" href="overdue.php">OVERDUE</a>
+                            </li>
                             <li class="nav-item"><a class="nav-link active text-light" href="logout.php">LOGOUT</a>
                             </li>
                         </ul>
@@ -91,7 +95,7 @@ $tomorrow = date("Y-m-d", strtotime("+1 day"));
         <div id="layoutTable_content">
             <main>
                 <div class="container-fluid px-4">
-                <h1 class="mt-4">Overdue</h1>
+                    <h1 class="mt-4">Overdue</h1>
 
                     <div class="card mb-4">
 
